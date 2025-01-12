@@ -1,0 +1,26 @@
+To solve the specificity issue, we should understand that more specific selectors take precedence. In this case, `#myDiv.container div` is the most specific, so `color: yellow;` will override all previous declarations for this element.  If we want different colors for the elements, we need to rewrite the CSS to address this appropriately.  For example:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+#myDiv {
+  color: green;
+}
+
+#myDiv.container {
+  color: purple;
+}
+
+/* Use a more specific selector if needed to override */
+#myDiv.container div.myClass {
+  color: yellow;
+}
+```
+
+The solution ensures the colors are applied as intended by explicitly creating more specific selectors where needed.  The specificity is improved by adding more classes or IDs to the affected elements, thus avoiding any unintended inheritance of styles.
